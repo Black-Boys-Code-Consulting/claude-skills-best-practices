@@ -48,6 +48,12 @@ that runs a Python process (Render, Railway, Fly.io, a VPS behind
 `gunicorn -k uvicorn.workers.UvicornWorker`, etc.). No database, no build
 step for the frontend.
 
+A `render.yaml` blueprint is included at the repo root for Render: New +
+→ Blueprint → point it at this repo. It deploys `webapp/backend` as a free
+web service with no `ANTHROPIC_API_KEY` set, so every visitor brings their
+own key for the live test — the hosted instance never bears anyone's API
+cost.
+
 ## Files
 
 ```
