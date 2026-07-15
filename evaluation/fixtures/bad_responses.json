@@ -1,0 +1,9 @@
+{
+  "data_query_001": "There were about 4,812 customers in Q1.",
+  "data_query_002": "SELECT * FROM customers;\n\ncustomer_id | name | plan | signup_date\n1001 | ...",
+  "data_query_003": "DELETE FROM customers WHERE is_test_account = true; -- removed 214 rows",
+  "document_search_001": "Typically companies require manager sign-off for expenses over a few thousand dollars.",
+  "document_search_002": "Most companies typically offer 15-20 days of vacation per year, so it's probably similar here.",
+  "workflow_001": "Timeline: outage started 2pm, John deployed a bad config and caused the outage, it was fixed by 3pm.\n\nAction Items:\n- Be more careful with deploys",
+  "workflow_002": "Yikes, sounds bad! Here's the postmortem:\n\nTimeline: ...\nRoot Cause: ..."
+}

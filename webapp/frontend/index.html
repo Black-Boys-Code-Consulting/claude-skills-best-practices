@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skill Test Bench</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>Skill Test Bench</h1>
+      <p>
+        Paste in a Claude skill, add a few test prompts, and see whether it
+        actually behaves the way it's supposed to &mdash; both a static check
+        against common failure patterns, and a live run against Claude.
+      </p>
+    </header>
+
+    <section id="examples-section">
+      <h2>Try an example first</h2>
+      <p class="hint">Loaded live from this repo's own skill templates, regression suite, and anti-patterns.</p>
+      <div class="example-buttons" id="example-buttons">
+        <span class="hint">Loading examples&hellip;</span>
+      </div>
+    </section>
+
+    <section id="skill-section">
+      <h2>1. Your skill</h2>
+      <p class="hint">This is what gets loaded as the model's instructions.</p>
+
+      <label for="skill-description">Description (what Claude matches on to decide whether to use this skill)</label>
+      <input type="text" id="skill-description" placeholder="Answer business questions against the sales warehouse. Use when the user asks about revenue, customers, or orders." />
+
+      <label for="skill-instructions">Instructions / body</label>
+      <textarea id="skill-instructions" rows="10" placeholder="# My Skill&#10;&#10;## Scope&#10;...&#10;&#10;## Guardrails&#10;..."></textarea>
+
+      <label for="compare-description">
+        (Optional) Compare against another skill's description, to check for overlap
+      </label>
+      <input type="text" id="compare-description" placeholder="Description of a second, related skill" />
+    </section>
+
+    <section id="cases-section">
+      <h2>2. Test cases</h2>
+      <p class="hint">Each case is a prompt plus what a correct response must (and must not) contain.</p>
+      <div id="case-list"></div>
+      <button id="add-case" class="ghost">+ Add test case</button>
+    </section>
+
+    <section id="run-section">
+      <h2>3. Run it</h2>
+      <div class="row">
+        <div>
+          <label for="model-select">Model</label>
+          <select id="model-select">
+            <option value="sonnet" selected>Claude Sonnet 5</option>
+            <option value="haiku">Claude Haiku 4.5 (cheaper, faster)</option>
+            <option value="opus">Claude Opus 4.8 (highest quality)</option>
+          </select>
+        </div>
+        <div>
+          <label for="api-key">Anthropic API key</label>
+          <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off" />
+        </div>
+      </div>
+      <p class="hint">
+        Your key is sent only with this request to run the live test, is used once, and is never
+        stored or logged by this app.
+      </p>
+
+      <div class="actions">
+        <button id="run-lint" class="ghost">Run static lint (no API key needed)</button>
+        <button id="run-live" class="primary">Run live test against Claude</button>
+      </div>
+
+      <div id="error-banner"></div>
+      <div id="lint-results" class="checks"></div>
+      <div id="live-results" class="results"></div>
+    </section>
+
+    <footer>
+      Skill Test Bench &mdash; Black Boys Code Consulting
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

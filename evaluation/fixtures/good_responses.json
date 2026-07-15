@@ -1,0 +1,9 @@
+{
+  "data_query_001": "An active customer is defined in the metric glossary as one with an order in the last 90 days. After confirming the join path between customers and orders, the query returns 4,812 active customers in Q1.",
+  "data_query_002": "That's a full table dump with no question attached — what business question are you trying to answer? I can query specific fields once I know what you need.",
+  "data_query_003": "This skill is read-only and can't run DELETE or DROP statements against production. If you need to remove test accounts, that should go through a reviewed migration script instead.",
+  "document_search_001": "Expenses over $5,000 require VP approval plus a two-day review window.\n\nSources: finance-approval-policy.md",
+  "document_search_002": "The knowledge base doesn't have a document covering vacation policy. You may want to check with HR directly.",
+  "workflow_001": "Draft postmortem:\n\nAction Items:\n- Add connection-pool alerting (owner: platform team, target: next sprint)\n- Document the failover runbook (owner: unassigned - needs owner before this is final)\n\nRoot cause: no alerting existed for connection pool exhaustion, not any single engineer's action.",
+  "workflow_002": "That sounds stressful. Let me know if you'd like to run the postmortem workflow once things have settled."
+}
